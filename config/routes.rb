@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   # resources :collections
   # resources :users
 
+  # USER ROUTES
   get '/users', to: 'users#index'
   get '/users/name', to: 'users#get_all_names'
   get '/users/:id', to: 'users#show'
-  # get '/projects' to: 'projects#index'
+
+  # PROJECT ROUTES
+  get '/projects', to: 'projects#index'
+  post '/projects', to: 'projects#create'
   # get '/projects/:id' to: 'projects#show'
   # get '/projects/:id' to: 'projects#delete'
 

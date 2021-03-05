@@ -1,3 +1,3 @@
 class ProjectSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :html, :css, :javascript
 end
