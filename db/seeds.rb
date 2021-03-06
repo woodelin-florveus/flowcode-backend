@@ -25,12 +25,12 @@ user2 = User.create(name: "Woodelin")
 
 
 project1 = Project.create(title: "Project One", html: "Html", javascript: "Javascript", css:"CSS")
-project2 = Project.create(title: "Project One", html: "Html", javascript: "Javascript", css:"CSS")
+project2 = Project.create(title: "Project Two", html: "Html", javascript: "Javascript", css:"CSS")
 
 
 collection1 = Collection.create(name: "Collection One", user_id: user1.id, project_id: project1.id)
-collection2 = Collection.create(name: "Collection Two", user_id: user1.id, project_id: project2.id)
-collection3 = Collection.create(name: "Collection Three", user_id: user2.id, project_id: project2.id)
+collection2 = Collection.create(name: "Collection Two", user_id: user2.id, project_id: project2.id)
+# collection3 = Collection.create(name: "Collection Three", user_id: user2.id, project_id: project2.id)
     
 
 # project joiner 
