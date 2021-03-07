@@ -17,7 +17,6 @@ class ProjectsController < ApplicationController
     end
 
     def show 
-        # byebug
         @project = Project.find(params[:id])
         
         render json: @project

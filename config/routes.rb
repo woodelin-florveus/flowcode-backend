@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # PROJECT ROUTES
   get '/projects', to: 'projects#index'
   post '/projects', to: 'projects#create'
-  # get '/projects/:id' to: 'projects#show'
+  get '/projects/:id', to: 'projects#show'
   # get '/projects/:id' to: 'projects#delete'
 
 
