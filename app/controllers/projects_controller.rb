@@ -28,4 +28,15 @@ class ProjectsController < ApplicationController
         render json: @project
     end
 
+    def update
+        @project = Project.find(params[:id])
+        
+        @project.update(html: params[:html], css: params[:css], javascript: params[:javascript])
+        
+        render json: @project
+    end
+
+
+
+
 end

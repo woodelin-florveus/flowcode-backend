@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/projects', to: 'projects#create'
   get '/projects/:id', to: 'projects#show'
   delete '/projects/:id', to: 'projects#delete'
+  patch '/projects/:id', to: 'projects#update'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
