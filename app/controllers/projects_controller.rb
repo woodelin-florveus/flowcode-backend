@@ -7,11 +7,12 @@ class ProjectsController < ApplicationController
     end
 
     def create
+        params[:projectTitle]
         params[:html]
         params[:css]
         params[:js]
 
-        @project = Project.create(title: "New", html: params[:html], css: params[:css], javascript: params[:js])
+        @project = Project.create(title: params[:projectTitle], html: params[:html], css: params[:css], javascript: params[:js])
 
         render json: @project
     end
