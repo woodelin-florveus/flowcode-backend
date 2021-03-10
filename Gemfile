@@ -45,3 +45,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Creates image from html and css code
 gem 'htmlcsstoimage-api'
+
+# Enables the creation of env files to access throughout the application
+gem 'dotenv-rails'

@@ -1,6 +1,7 @@
 require "htmlcsstoimage"
 
 class ProjectsController < ApplicationController
+    before_action :imageFromHTMLCSS, only: [:create, :update]
    
 
     def index
@@ -10,17 +11,12 @@ class ProjectsController < ApplicationController
     end
 
     def create
-
-        client = HTMLCSSToImage.new(user_id: "d837701f-a96c-4915-8ead-e5643389935d", api_key: "70825932-df8e-4c4e-9f4f-c995ba4bc845")
-
         params[:projectTitle]
         params[:html]
         params[:css]
         params[:js]
 
-        image = client.create_image(params[:html], css: params[:css])
-
-        @project = Project.create(title: params[:projectTitle], html: params[:html], css: params[:css], javascript: params[:js], image_url: image.url)
+        @project = Project.create(title: params[:projectTitle], html: params[:html], css: params[:css], javascript: params[:js], image_url: @image.url)
 
         render json: @project
     end
@@ -38,18 +34,21 @@ class ProjectsController < ApplicationController
     end
 
     def update
-        client = HTMLCSSToImage.new(user_id: "d837701f-a96c-4915-8ead-e5643389935d", api_key: "70825932-df8e-4c4e-9f4f-c995ba4bc845")
-
-        image = client.create_image(params[:html], css: params[:css])
-
         @project = Project.find(params[:id])
         
-        @project.update(html: params[:html], css: params[:css], javascript: params[:javascript], image_url: image.url)
+        @project.update(html: params[:html], css: params[:css], javascript: params[:javascript], image_url: @image.url)
         
         render json: @project
     end
 
 
+    private
+
+    def imageFromHTMLCSS
+        client = HTMLCSSToImage.new(user_id: ENV["ID"], api_key: ENV["API"])
+        @image = client.create_image(params[:html], css: params[:css])
+
+    end
 
 
 end
